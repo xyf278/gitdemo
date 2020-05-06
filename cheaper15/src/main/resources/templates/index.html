@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="kobe">
+    {{messages}}
+</div>
+<div id="kobe-2">
+    <span v-bind:title="messages">
+        鼠标悬停在此处几秒会出现提示信息
+    </span>
+</div>
+<div id="kobe-3">
+    <p v-if="seen">现在你能看到我</p>
+</div>
+
+<script type="text/javascript">
+    var app=new Vue({
+        el: "#kobe",
+        data: {
+            messages: 'Hello Vue'
+        }
+    })
+    var app2=new Vue({
+        el: "#kobe-2",
+        data:{
+            messages: '页面加载与:'+ new Date().toLocaleDateString()
+        }
+    })
+    var app4=new Vue({
+        el: "#kobe-3",
+        data:{
+            seen:true
+        }
+    })
+</script>
+</body>
+</html>
